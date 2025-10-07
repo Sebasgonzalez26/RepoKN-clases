@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace KN_ProyectoWeb.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
-            
+
         {
             return View();
         }
@@ -21,6 +17,11 @@ namespace KN_ProyectoWeb.Controllers
 
         }
 
-       
+
+        public ActionResult Principal()
+        {
+            return View();
+        }
+
     }
 }
