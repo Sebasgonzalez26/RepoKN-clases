@@ -1,4 +1,5 @@
-﻿using KN_ProyectoWeb.Models;
+﻿using KN_ProyectoWeb.EF;
+using KN_ProyectoWeb.Models;
 using System.Web.Mvc;
 
 namespace KN_ProyectoWeb.Controllers
@@ -45,8 +46,34 @@ namespace KN_ProyectoWeb.Controllers
 
         [HttpPost]
         public ActionResult Registro(Usuario usuario)
+
+
+
         {
 
+
+            using (var context = new BD_KNEntities())
+            {
+                //var nuevoUsuario = new tbUsuario
+                //{
+
+                //    Identificacion = usuario.Identificacion,
+                //    Nombre = usuario.Nombre,
+                //    CorreoElectronico = usuario.CorreoElectronico,
+                //    Contrasenna = usuario.Contrasenna,
+                //    idPerfil = 2,
+                //    Estado = true
+                    
+
+
+                //};
+
+                //context.tbUsuario.Add(nuevoUsuario);
+                //context.SaveChanges();
+
+                context.CrearUsuarios(usuario.Identificacion, usuario.Nombre, usuario.CorreoElectronico, usuario.Contrasenna);
+
+            }
 
             /*Progra para ir a guardar el usuario a la BD*/
 
