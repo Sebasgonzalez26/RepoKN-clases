@@ -151,6 +151,9 @@
     <Compile Include="EF\tbUsuario.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\ValidarUsuarios_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,11 +185,14 @@
     <Content Include="StaticFiles\js\bootstrap.js" />
     <Content Include="StaticFiles\js\config.js" />
     <Content Include="StaticFiles\js\helpers.js" />
+    <Content Include="StaticFiles\js\IniciarSesion.js" />
     <Content Include="StaticFiles\js\jquery.js" />
     <Content Include="StaticFiles\js\main.js" />
     <Content Include="StaticFiles\js\menu.js" />
     <Content Include="StaticFiles\js\perfect-scrollbar.js" />
     <Content Include="StaticFiles\js\popper.js" />
+    <Content Include="StaticFiles\js\RecuperarAcceso.js" />
+    <Content Include="StaticFiles\js\Registro.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

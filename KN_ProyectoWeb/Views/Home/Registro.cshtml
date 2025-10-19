@@ -66,9 +66,21 @@
                     </div>
 
 
+                    @if (ViewBag.Mensaje != null)
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            @ViewBag.Mensaje
+                        </div>
+                    }
 
 
-                    @using (Html.BeginForm("Registro", "Home"))
+
+
+
+
+
+
+                    @using (Html.BeginForm("Registro", "Home", FormMethod.Post, new { @id = "FormRegistro" }))
                     {
 
 
@@ -79,7 +91,7 @@
 
 
 
-                            @Html.TextBoxFor(x => x.Identificacion, new { @class = "form-control" })
+                            @Html.TextBoxFor(x => x.Identificacion, new { @class = "form-control", @onkeyup = "ConsultarNombre();" })
                         </div>
                         <div class="mb-3">
                             <label for="username" class="form-label">Nombre Completo</label>
@@ -112,5 +124,13 @@
 
         </div>
     </div>
+
 </div>
+
+
+
+
+<script src="~/StaticFiles/js/Registro.js"></script>
+
+
 

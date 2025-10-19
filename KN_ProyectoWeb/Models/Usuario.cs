@@ -12,6 +12,7 @@ namespace KN_ProyectoWeb.Models
         public string Nombre { get; set; }
 
 
+
         public string CorreoElectronico { get; set; }
 
 

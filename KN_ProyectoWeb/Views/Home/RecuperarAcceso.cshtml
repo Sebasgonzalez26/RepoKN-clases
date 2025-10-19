@@ -64,7 +64,7 @@
                         </a>
                     </div>
 
-                    @using (Html.BeginForm("RecuperarAcceso", "Home"))
+                    @using (Html.BeginForm("RecuperarAcceso", "Home", FormMethod.Post, new { @id = "FormRecuperarAcceso" }))
                     {
 
 
@@ -88,3 +88,4 @@
     </div>
 </div>
 
+<script src="~/StaticFiles/js/RecuperarAcceso.js"></script>

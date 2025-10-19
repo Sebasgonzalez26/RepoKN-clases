@@ -22,9 +22,19 @@
                     </a>
                 </div>
 
+
+                @if (ViewBag.Mensaje != null)
+                {
+                    <div class="alert alert-primary" role="alert">
+                        @ViewBag.Mensaje
+                    </div>
+                }
+
+
+
                 <h4 class="mb-2"></h4>
 
-                @using (Html.BeginForm("Index", "Home"))
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@id = "FormIniciarSesion"}))
                 {
 
 
@@ -32,8 +42,8 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
-                       
-                        @Html.TextBoxFor(x => x.CorreoElectronico, new { @class="form-control"})
+
+                        @Html.TextBoxFor(x => x.CorreoElectronico, new { @class = "form-control" })
 
                     </div>
                     <div class="mb-3 form-password-toggle">
@@ -44,8 +54,7 @@
                             </a>
                         </div>
                         <div class="input-group input-group-merge">
-                       
-                            @Html.PasswordFor(x => x.Contrasenna, new { @class = "form-control", @type= "password" })
+
                             <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                         </div>
                     </div>
@@ -66,3 +75,6 @@
         <!-- /Register -->
     </div>
 </div>
+
+
+<script src="~/StaticFiles/js/IniciarSesion.js"></script>
