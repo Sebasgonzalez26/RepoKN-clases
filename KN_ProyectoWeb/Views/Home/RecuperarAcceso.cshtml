@@ -64,6 +64,13 @@
                         </a>
                     </div>
 
+                    @if (ViewBag.Mensaje != null)
+                    {
+                        <div class="alert alert-primary" role="alert">
+                            @ViewBag.Mensaje
+                        </div>
+                    }
+
                     @using (Html.BeginForm("RecuperarAcceso", "Home", FormMethod.Post, new { @id = "FormRecuperarAcceso" }))
                     {
 
@@ -74,14 +81,14 @@
 
                         </div>
                         <button class="btn btn-primary d-grid w-100" type="submit">Procesar</button>
-                        }
-                        <div class="text-center">
-                            <a href="@Url.Action("Index", "Home")" class="d-flex align-items-center justify-content-center">
-                                <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
-                                Regresar al Login
-                            </a>
-                        </div>
-</div>
+                    }
+                    <div class="text-center">
+                        <a href="@Url.Action("Index", "Home")" class="d-flex align-items-center justify-content-center">
+                            <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+                            Regresar al Login
+                        </a>
+                    </div>
+                </div>
             </div>
          
         </div>

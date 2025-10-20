@@ -1,27 +1,22 @@
-﻿
-@model KN_ProyectoWeb.Models.Usuario
+﻿@model KN_ProyectoWeb.Models.Usuario
 
 @{
     ViewBag.Title = "Home Page";
     Layout = "~/Views/Shared/_LayoutExterno.cshtml";
 }
 
-
-
 <div class="authentication-wrapper authentication-basic container-p-y">
     <div class="authentication-inner">
-        <!-- Register -->
+        <!-- Login -->
         <div class="card">
             <div class="card-body">
                 <!-- Logo -->
                 <div class="app-brand justify-content-center">
-                    <a href="index.html" class="app-brand-link gap-2">
-
-                        <img src="~/StaticFiles/img/Icono.png"
-                        <span class="app-brand-text demo text-body fw-bolder">Iniciar Sesion</span>
+                    <a href="@Url.Action("Index","Home")" class="app-brand-link gap-2">
+                        <img src="~/StaticFiles/img/Icono.png" alt="Logo" style="height:48px;" />
+                        <span class="app-brand-text demo text-body fw-bolder">Iniciar Sesión</span>
                     </a>
                 </div>
-
 
                 @if (ViewBag.Mensaje != null)
                 {
@@ -30,51 +25,60 @@
                     </div>
                 }
 
-
-
-                <h4 class="mb-2"></h4>
-
-                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new {@id = "FormIniciarSesion"}))
+                @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "FormIniciarSesion" }))
                 {
-
-
-
+                    @Html.AntiForgeryToken()
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Correo Electrónico</label>
-
-                        @Html.TextBoxFor(x => x.CorreoElectronico, new { @class = "form-control" })
-
+                        <label for="CorreoElectronico" class="form-label">Correo Electrónico</label>
+                        @Html.TextBoxFor(m => m.CorreoElectronico, new
+                        {
+                            @class = "form-control",
+                            @type = "email",
+                            @placeholder = "correo@dominio.com",
+                            @autocomplete = "username",
+                            required = "required"
+                        })
+                        @Html.ValidationMessageFor(m => m.CorreoElectronico, "", new { @class = "text-danger" })
                     </div>
+
                     <div class="mb-3 form-password-toggle">
                         <div class="d-flex justify-content-between">
-                            <label class="form-label" for="password">Contraseña</label>
+                            <label class="form-label" for="Contrasenna">Contraseña</label>
                             <a href="@Url.Action("RecuperarAcceso", "Home")">
-                                <small>Olvidó su contraseña?</small>
+                                <small>¿Olvidó su contraseña?</small>
                             </a>
                         </div>
                         <div class="input-group input-group-merge">
-
-                            <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                            <input type="password"
+                                   id="Contrasenna"
+                                   name="Contrasenna"
+                                   class="form-control"
+                                   placeholder="Ingrese su contraseña"
+                                   autocomplete="current-password"
+                                   required />
+                            <span class="input-group-text cursor-pointer">
+                                <i class="bx bx-hide"></i>
+                            </span>
                         </div>
+                        @Html.ValidationMessage("Contrasenna", "", new { @class = "text-danger" })
                     </div>
 
                     <div class="mb-3">
-                        <button class="btn btn-primary d-grid w-100" type="submit">Iniciar Sesion</button>
+                        <button class="btn btn-primary d-grid w-100" type="submit">Iniciar Sesión</button>
                     </div>
                 }
 
                 <p class="text-center">
-                    <span>Nuevo en nuestra plataforma?</span>
+                    <span>¿Nuevo en nuestra plataforma?</span>
                     <a href="@Url.Action("Registro", "Home")">
                         <span>Crear una cuenta</span>
                     </a>
                 </p>
             </div>
         </div>
-        <!-- /Register -->
+        <!-- /Login -->
     </div>
 </div>
-
 
 <script src="~/StaticFiles/js/IniciarSesion.js"></script>
